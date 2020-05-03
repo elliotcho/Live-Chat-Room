@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <charset meta='utf-8'></charset>
+
+        <title>Live Chat Room</title>
+
+        <script src='/socket.io/socket.io.js'></script>
+        <link rel='stylesheet' href='style.css'>
+    </head>
+    <body>
+        <div id='container'>
+            <div id='log'>
+                <div id='output'></div>
+                <div id='typing'></div>
+            </div>
+
+            <input id='name' type='text' placeholder='Name'>
+            <input id='msg' type='text' placeholder='Message'>
+            <button id='send'>Send</button>
+        </div>
+
+        <script src='client.js'></script>
+    </body>
+</html>
