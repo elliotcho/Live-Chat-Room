@@ -1,11 +1,7 @@
-/*
-    set up client side socket
-*/
+//make connection
 const socket=io.connect('http://localhost:3000');
 
-/*
-    save references to DOM elements in variables
-*/
+//save references to DOM elements in variables
 const output=document.getElementById('output');
 const typing=document.getElementById('typing');
 const name=document.getElementById('name');
@@ -14,9 +10,9 @@ const send=document.getElementById('send');
 
 /*
     client emits an event
-        'sent' event: message is being sent on button click
-        'typing' event: user is typing a message on keypress
-        'stopped' event: user has stopped typing when msg has finished changing
+    'sent' event: message is being sent on button click
+    'typing' event: user is typing a message on keypress
+    'stopped' event: user has stopped typing when msg has finished changing
 */
 send.addEventListener('click', ()=>{
     if(msg.value!==""){
@@ -45,10 +41,10 @@ msg.addEventListener('change', ()=>{
 
 
 /*
-    client recieves an event
-        'sent' event: add the message recieved to the DOM
-        'typing' event: show which user is typing on the DOM
-        'stopped' event: stop showing which user is typing on the DOM
+    client listens for events
+    'sent' event: add the message recieved to the DOM
+    'typing' event: show which user is typing on the DOM
+    'stopped' event: stop showing which user is typing on the DOM
 */
 socket.on('sent', (data)=>{
     typing.innerHTML="";

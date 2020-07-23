@@ -1,21 +1,15 @@
-/*
-    require modules
-*/
+//require modules
 const express=require('express');
 const socket=require('socket.io');
 
-/*
-    set up server
-*/
+//set up server
 const app=express();
 
 app.use(express.static('static'));
 
 const server=app.listen(3000);
 
-/*
-    set up server side socket
-*/
+//socket set up
 const io=socket(server);
 
 io.on('connection', (socket)=>{
@@ -31,7 +25,7 @@ io.on('connection', (socket)=>{
     });
 
     //user has stopped typing
-    socket.on('stopped', (data)=>{
+    socket.on('stopped', ()=>{
         io.sockets.emit('stopped');
     });
 });
